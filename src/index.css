@@ -1,0 +1,90 @@
+/* ================= RESET ================= */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ================= ROOT ================= */
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
+  overflow: hidden; /* 🚫 no scroll */
+}
+
+/* ================= BODY ================= */
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #0a0a14;
+  color: #ffffff;
+
+  /* smoother rendering */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  /* better mobile touch */
+  -webkit-tap-highlight-color: transparent;
+
+  /* prevent text selection issues on mobile */
+  touch-action: manipulation;
+}
+
+/* ================= APP CONTAINER ================= */
+.app-container {
+  width: 100%;
+
+  /* fallback */
+  min-height: 100vh;
+
+  /* modern mobile fix */
+  min-height: 100dvh;
+}
+
+/* ================= BUTTON ================= */
+button {
+  min-height: 44px;
+
+  /* better UX */
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background: none;
+
+  /* smooth interaction */
+  transition: all 0.2s ease;
+}
+
+/* remove tap highlight (mobile) */
+button:focus,
+button:active {
+  outline: none;
+}
+
+/* ================= SCROLLBAR ================= */
+
+/* Chrome, Safari */
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* Firefox */
+html {
+  scrollbar-width: none;
+}
+
+/* ================= IMAGE / MEDIA ================= */
+img,
+video {
+  max-width: 100%;
+  display: block;
+}
+
+/* ================= SELECTION ================= */
+::selection {
+  background: #ff3366;
+  color: #fff;
+}
