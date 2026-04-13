@@ -128,32 +128,138 @@ export default function Meaning({ next }) {
 
 const styles = {
   container: {
-    height: "100vh", width: "100%", backgroundColor: "#050505",
-    display: "flex", alignItems: "center", justifyContent: "center",
-    position: "relative", overflow: "hidden", color: "#fff",
+    minHeight: "100vh", // 🔥 FIX (was height)
+    width: "100%",
+    backgroundColor: "#050505",
+
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+
+    position: "relative",
+
+    overflowX: "hidden", // ✅ allow scroll
+    overflowY: "auto",
+
+    color: "#fff",
     fontFamily: "'Plus Jakarta Sans', sans-serif",
+
+    WebkitOverflowScrolling: "touch", // 🔥 smooth mobile scroll
   },
-  backgroundCanvas: { position: "absolute", inset: 0, zIndex: 1 },
+
+  backgroundCanvas: {
+    position: "absolute",
+    inset: 0,
+    zIndex: 1,
+    pointerEvents: "none", // ✅ prevents scroll block
+  },
+
   softGlow: {
-    position: "absolute", width: "50vw", height: "50vh",
-    background: "rgba(255,255,255,0.02)", filter: "blur(120px)", borderRadius: "50%"
+    position: "absolute",
+    width: "50vw",
+    height: "50vh",
+    background: "rgba(255,255,255,0.02)",
+    filter: "blur(120px)",
+    borderRadius: "50%",
   },
+
   wrapper: {
-    position: "relative", zIndex: 10, width: "100%", maxWidth: "700px",
-    padding: "0 40px", transition: "all 1s cubic-bezier(0.16, 1, 0.3, 1)"
+    position: "relative",
+    zIndex: 10,
+    width: "100%",
+    maxWidth: "700px",
+
+    padding: "40px 20px", // 🔥 better mobile spacing
+    transition: "all 1s cubic-bezier(0.16, 1, 0.3, 1)",
   },
-  header: { textAlign: "center", marginBottom: "60px" },
-  kicker: { fontSize: "10px", letterSpacing: "6px", color: "rgba(255,255,255,0.3)", fontWeight: "700" },
-  verticalLine: { width: "1px", height: "40px", background: "rgba(255,255,255,0.1)", margin: "20px auto" },
-  timeline: { display: "flex", flexDirection: "column", gap: "60px" },
-  entry: { display: "flex", alignItems: "flex-start", gap: "40px", transition: "all 1s ease" },
-  meta: { textAlign: "right", minWidth: "100px" },
-  date: { fontSize: "32px", fontWeight: "700", margin: 0, letterSpacing: "-1px" },
-  dot: { width: "6px", height: "6px", background: "#ff3366", borderRadius: "50%", margin: "10px 0 0 auto" },
-  descriptionBox: { borderLeft: "1px solid rgba(255,255,255,0.1)", paddingLeft: "40px" },
-  title: { fontSize: "12px", letterSpacing: "4px", color: "rgba(255,255,255,0.5)", fontWeight: "700", margin: "0 0 10px 0" },
-  details: { fontSize: "16px", color: "rgba(255,255,255,0.4)", fontWeight: "300", lineHeight: "1.6", margin: 0 },
-  footer: { marginTop: "80px", textAlign: "center", transition: "all 1.2s ease" },
-  conclusion: { marginBottom: "40px" },
-  quote: { fontSize: "18px", color: "rgba(255,255,255,0.6)", fontStyle: "italic", fontWeight: "200" },
+
+  header: {
+    textAlign: "center",
+    marginBottom: "60px",
+  },
+
+  kicker: {
+    fontSize: "10px",
+    letterSpacing: "6px",
+    color: "rgba(255,255,255,0.3)",
+    fontWeight: "700",
+  },
+
+  verticalLine: {
+    width: "1px",
+    height: "40px",
+    background: "rgba(255,255,255,0.1)",
+    margin: "20px auto",
+  },
+
+  timeline: {
+    display: "flex",
+    flexDirection: "column",
+    gap: "60px",
+  },
+
+  entry: {
+    display: "flex",
+    alignItems: "flex-start",
+    gap: "40px",
+    transition: "all 1s ease",
+  },
+
+  meta: {
+    textAlign: "right",
+    minWidth: "100px",
+  },
+
+  date: {
+    fontSize: "32px",
+    fontWeight: "700",
+    margin: 0,
+    letterSpacing: "-1px",
+  },
+
+  dot: {
+    width: "6px",
+    height: "6px",
+    background: "#ff3366",
+    borderRadius: "50%",
+    margin: "10px 0 0 auto",
+  },
+
+  descriptionBox: {
+    borderLeft: "1px solid rgba(255,255,255,0.1)",
+    paddingLeft: "40px",
+  },
+
+  title: {
+    fontSize: "12px",
+    letterSpacing: "4px",
+    color: "rgba(255,255,255,0.5)",
+    fontWeight: "700",
+    margin: "0 0 10px 0",
+  },
+
+  details: {
+    fontSize: "16px",
+    color: "rgba(255,255,255,0.4)",
+    fontWeight: "300",
+    lineHeight: "1.6",
+    margin: 0,
+  },
+
+  footer: {
+    marginTop: "80px",
+    textAlign: "center",
+    transition: "all 1.2s ease",
+  },
+
+  conclusion: {
+    marginBottom: "40px",
+  },
+
+  quote: {
+    fontSize: "18px",
+    color: "rgba(255,255,255,0.6)",
+    fontStyle: "italic",
+    fontWeight: "200",
+  },
 };
