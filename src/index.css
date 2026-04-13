@@ -13,7 +13,10 @@ body,
 #root {
   width: 100%;
   height: 100%;
-  overflow: hidden; /* 🚫 no scroll */
+
+  /* 🔥 FIX: allow vertical scroll */
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 /* ================= BODY ================= */
@@ -29,7 +32,10 @@ body {
   /* better mobile touch */
   -webkit-tap-highlight-color: transparent;
 
-  /* prevent text selection issues on mobile */
+  /* smooth scroll */
+  scroll-behavior: smooth;
+
+  /* prevent weird zoom/tap issues */
   touch-action: manipulation;
 }
 
@@ -37,28 +43,21 @@ body {
 .app-container {
   width: 100%;
 
-  /* fallback */
+  /* 🔥 FIX: flexible height instead of fixed */
   min-height: 100vh;
-
-  /* modern mobile fix */
   min-height: 100dvh;
 }
 
 /* ================= BUTTON ================= */
 button {
   min-height: 44px;
-
-  /* better UX */
   cursor: pointer;
   border: none;
   outline: none;
   background: none;
-
-  /* smooth interaction */
   transition: all 0.2s ease;
 }
 
-/* remove tap highlight (mobile) */
 button:focus,
 button:active {
   outline: none;
@@ -68,7 +67,8 @@ button:active {
 
 /* Chrome, Safari */
 ::-webkit-scrollbar {
-  display: none;
+  width: 0;
+  height: 0;
 }
 
 /* Firefox */
