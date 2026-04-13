@@ -128,25 +128,23 @@ export default function Meaning({ next }) {
 
 const styles = {
   container: {
-    minHeight: "100vh", // 🔥 FIX (was height)
-    width: "100%",
-    backgroundColor: "#050505",
+  minHeight: "100vh",
+  width: "100%",
+  backgroundColor: "#050505",
 
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
+  display: "block", // 🔥 CHANGE (was flex)
 
-    position: "relative",
+  position: "relative",
 
-    overflowX: "hidden", // ✅ allow scroll
-    overflowY: "auto",
+  overflowX: "hidden",
+  overflowY: "auto",
 
-    color: "#fff",
-    fontFamily: "'Plus Jakarta Sans', sans-serif",
+  color: "#fff",
+  fontFamily: "'Plus Jakarta Sans', sans-serif",
 
-    WebkitOverflowScrolling: "touch", // 🔥 smooth mobile scroll
-  },
-
+  WebkitOverflowScrolling: "touch",
+    },
+    
   backgroundCanvas: {
     position: "absolute",
     inset: 0,
@@ -163,15 +161,17 @@ const styles = {
     borderRadius: "50%",
   },
 
-  wrapper: {
-    position: "relative",
-    zIndex: 10,
-    width: "100%",
-    maxWidth: "700px",
+wrapper: {
+  position: "relative",
+  zIndex: 10,
+  width: "100%",
+  maxWidth: "700px",
 
-    padding: "40px 20px", // 🔥 better mobile spacing
-    transition: "all 1s cubic-bezier(0.16, 1, 0.3, 1)",
-  },
+  margin: "0 auto", // 🔥 center horizontally
+  padding: "80px 20px", // 🔥 gives vertical space
+
+  transition: "all 1s cubic-bezier(0.16, 1, 0.3, 1)",
+},
 
   header: {
     textAlign: "center",

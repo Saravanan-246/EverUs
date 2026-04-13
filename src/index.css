@@ -7,16 +7,15 @@
   box-sizing: border-box;
 }
 
-/* ================= ROOT ================= */
+/* ================= ROOT (SCROLL FIX) ================= */
 html,
 body,
 #root {
   width: 100%;
   height: 100%;
 
-  /* 🔥 FIX: allow vertical scroll */
-  overflow-x: hidden;
-  overflow-y: auto;
+  overflow-x: hidden;   /* ✅ prevent horizontal scroll */
+  overflow-y: auto;     /* ✅ allow vertical scroll */
 }
 
 /* ================= BODY ================= */
@@ -25,27 +24,16 @@ body {
   background: #0a0a14;
   color: #ffffff;
 
-  /* smoother rendering */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  /* better mobile touch */
   -webkit-tap-highlight-color: transparent;
-
-  /* smooth scroll */
-  scroll-behavior: smooth;
-
-  /* prevent weird zoom/tap issues */
-  touch-action: manipulation;
 }
 
 /* ================= APP CONTAINER ================= */
 .app-container {
-  width: 100%;
-
-  /* 🔥 FIX: flexible height instead of fixed */
   min-height: 100vh;
-  min-height: 100dvh;
+  min-height: 100dvh; /* ✅ mobile fix */
 }
 
 /* ================= BUTTON ================= */
@@ -55,36 +43,21 @@ button {
   border: none;
   outline: none;
   background: none;
-  transition: all 0.2s ease;
 }
 
-button:focus,
-button:active {
-  outline: none;
-}
-
-/* ================= SCROLLBAR ================= */
-
-/* Chrome, Safari */
+/* ================= SCROLLBAR (HIDE CLEAN) ================= */
 ::-webkit-scrollbar {
   width: 0;
   height: 0;
 }
 
-/* Firefox */
 html {
   scrollbar-width: none;
 }
 
-/* ================= IMAGE / MEDIA ================= */
+/* ================= MEDIA ================= */
 img,
 video {
   max-width: 100%;
   display: block;
-}
-
-/* ================= SELECTION ================= */
-::selection {
-  background: #ff3366;
-  color: #fff;
 }
